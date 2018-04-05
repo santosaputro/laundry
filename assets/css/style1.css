@@ -1,0 +1,249 @@
+section {
+  margin-top: 3.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+.bg-yellow {
+  background: #edd500;
+}
+
+.color-yellow {
+  color: #edd500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.navbar {
+  background: #fff;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.mr-nav {
+  margin-bottom: 7em;
+}
+
+/* Text Box */
+.text-box {
+  padding: 1em;
+  background: #edd500;
+  font-weight: bold;
+  font-size: 28px;
+  width: 100%;
+}
+
+
+/* CARD */
+.card-columns .card {
+  margin-bottom: 2em;
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 2em;
+    -moz-column-gap: 2em;
+    column-gap: 2em;
+  }
+  .card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.card {
+  border-radius: 0;
+  border: 1px solid #edd500;
+  padding: 2em 0.5em 2em 0.5em;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0px 13px 59px -3px rgba(0,0,0,0.10);
+  -moz-box-shadow: 0px 13px 59px -3px rgba(0,0,0,0.10);
+  box-shadow: 0px 13px 59px -3px rgba(0,0,0,0.10);
+}
+
+.card a {
+  color: #000;
+  text-decoration: none;
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.mg-min-2{
+  margin-top: -2em;
+}
+
+.label-promo {
+  z-index: 3;
+  position: absolute;
+  padding: 0.5em;
+  padding-top: 1em;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari 3-8 */
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  color: #000;
+}
+
+.segitiga{
+  z-index: 2;
+  position: absolute;
+	width: 0;
+  height: 0;
+  border-top: 160px solid #edd500;
+  border-left: 160px solid transparent;
+  top: -2em;
+  right: 1em;
+}
+
+.full-box {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 4em 0 4em 0;
+}
+
+.bg-shadow {
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+.bg-shadow:focus, .bg-shadow:active, .bg-shadow:hover {
+  -webkit-box-shadow: 1px 0px 35px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: 1px 0px 35px 0px rgba(0,0,0,0.10);
+  box-shadow: 1px 0px 35px 0px rgba(0,0,0,0.10);
+}
+
+.cap-bt {
+    transform: translate(0px, -10.6em);
+    background: rgba(255, 255, 3, 0.50);
+}
+
+.bottomright {
+  background: rgba(255, 255, 255, 0.80);
+  position: absolute;
+  padding: 1em;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+/* Badge */
+.badge {
+  font-weight: normal;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+.new-badge {
+  color: #fff;
+  text-decoration: none;
+  background: #ddd;
+}
+
+.new-badge:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.popular-articles a {
+  display: block;
+  color: #000;
+  border-bottom: 1px solid #ddd;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+.popular-articles a:hover {
+  color: red;
+}
+
+.sticky-top{
+  top: 5em;
+}
+
+/* social icon */
+.social {
+  font-size: 24px;
+}
+
+.social li {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: #ddd;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+.social li:hover {
+  color: #000;
+  background: #edd500;
+}
+
+.icon-i {
+  font-size: 40px;
+}
+
+/* footer */
+.footer {
+  padding: 1em;
+  padding-bottom: 0;
+  font-size: 24px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem 2em;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
