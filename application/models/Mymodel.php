@@ -9,9 +9,8 @@ class Mymodel extends CI_Model {
 
 	// Login Methods
 	// check login
-	function cek_login($table,$where){
-		$d = $this->db->get_where($table,$where);
-		return $d;
+	function cek_login($where){
+		return $this->db->get_where('users', $where);
 	}
 
 	// Read data from database to show data in admin page
@@ -97,5 +96,56 @@ class Mymodel extends CI_Model {
 	 	$this->db->where('id_contact', $key);
 		$this->db->update('contacts', $data);
 		return $res;
+	}
+
+	// paket
+	// show
+	public function getPaket() {
+		return $this->db->get('paket');
+	}
+
+	// add upsate
+	public function getWherePaket($key) {
+		$this->db->where('id_paket', $key);
+		return $this->db->get('paket');
+	}
+
+	// update
+	public function updatePaket($key, $data) {
+		$this->db->where('id_paket', $key);
+		$this->db->update('paket', $data);
+		return $res;
+	}
+
+	// save
+	public function addPaket($data) {
+		$this->db->insert('paket', $data);
+	}
+
+	// delete
+	public function deletePaket($key) {
+		$this->db->where('id_paket', $key);
+		$this->db->delete('paket');
+	}
+
+	// paket in Home
+	public function getPaket1() {
+		$this->db->where('id_paket', 1);
+		return $this->db->get('paket');
+	}
+
+	public function getPaket2() {
+		$this->db->where('id_paket', 2);
+		return $this->db->get('paket');
+	}
+
+	public function getPaket3() {
+		$this->db->where('id_paket', 3);
+		return $this->db->get('paket');
+	}
+
+	public function getPaket4() {
+		$this->db->where('id_paket', 4);
+		return $this->db->get('paket');
 	}
 }

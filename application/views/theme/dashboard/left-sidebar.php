@@ -28,7 +28,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="<?php echo $menu1; ?>"><a href="<?php echo base_url('dashboard'); ?>"><i class="ion-ios-home-outline text-aqua"></i> &nbsp;&nbsp;<span>Dashboard</span></a></li>
-        <li class="<?php echo $menu2; ?>"><a href="<?php echo base_url('dashboard/price'); ?>"><i class="ion-cash text-aqua"></i> &nbsp;&nbsp;<span>Price Range</span></a></li>
+        <li class="<?php echo $menu2; ?>"><a href="<?php echo base_url('dashboard/paket'); ?>"><i class="ion-cash text-aqua"></i> &nbsp;&nbsp;<span>Paket</span></a></li>
         <li class="<?php echo $menu3; ?>"><a href="<?php echo base_url('dashboard/visi_misi'); ?>"><i class="ion-arrow-graph-up-right text-aqua"></i> &nbsp;&nbsp;<span>Visi & Misi</span></a></li>
         <li class="<?php echo $menu4; ?>"><a href="<?php echo base_url('dashboard/contact'); ?>"><i class="ion-ios-navigate-outline text-aqua"></i> &nbsp;&nbsp;<span>Contact</span></a></li>
         <li class="<?php echo $menu5; ?>"><a href="<?php echo base_url('dashboard/users'); ?>"><i class="ion-person-stalker text-aqua"></i> &nbsp;&nbsp;<span>User</span></a></li>

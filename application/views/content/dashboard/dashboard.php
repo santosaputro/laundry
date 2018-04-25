@@ -17,6 +17,9 @@
     <div class="row">
         <br><br><br><br>
       <h1 class="text-center">WELCOME TO ADMIN DAHSBOARD <b>SIMPLE CLEAN LAUNDRY</b></h1>
+      <div style="color: green;"><br><br>
+        <p><?php echo $this->session->flashdata('success_message') ?></p>
+      </div>
     </div>
     <!-- /.row -->
   </section>

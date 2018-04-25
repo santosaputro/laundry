@@ -193,6 +193,42 @@ a:hover, a:active, a:focus {
   top: 5em;
 }
 
+/* tabs */
+.tab-content {
+  padding: 2em;
+  margin-top: 1em;
+  min-height: 50px;
+  background: #EFEFF2;
+}
+
+.nav-tabs {
+    border-bottom: 3px solid #343955;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    padding: 1em 2em 1em 2em;
+    margin: 0em 0.2em 0em 0.2em;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color: #343955;
+    background: #EFEFF2;
+}
+
+.nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+    border-color: transparent transparent #343955;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: transparent transparent #343955;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #343955;
+    border-color: #343955 #343955 #343955;
+}
+
 /* social icon */
 .social {
   font-size: 24px;

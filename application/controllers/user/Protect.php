@@ -25,13 +25,14 @@ class Protect extends CI_Controller {
 
   public function login() {
 
-		$username     = $this->input->post('username');
+		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+
 		$where = array(
 			'username' => $username,
 			'password' => md5($password)
 			);
-		$cek = $this->mymodel->cek_login("users",$where)->num_rows();
+		$cek = $this->mymodel->cek_login($where)->num_rows();
 		if($cek > 0) {
 			$result 	= $this->mymodel->read_user_information($username);
 			if ($result != false) {
@@ -41,6 +42,7 @@ class Protect extends CI_Controller {
   				'status'    => "login"
 					);
         $this->session->set_userdata($data_session);
+        $this->session->set_flashdata('success_message', 'Selamat Datang di dashboard');
   			redirect('dashboard');
 			}
 

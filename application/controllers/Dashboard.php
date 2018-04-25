@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
 
   	function __construct() {
     	parent::__construct();
-      if($this->session->userdata('status') != "login"){
+      if($this->session->userdata('status') != "login") {
   			redirect('user/protect');
   		}
     }
@@ -205,8 +205,8 @@ class Dashboard extends CI_Controller {
   			}
 
   		} else {
-        $data['id_contact']   = '';
-        $data['contact']      = '';
+        $data['id_contact']     = '';
+        $data['contact']        = '';
         $data['author']         = '';
         $data['last_update']    = '';
   		}
@@ -215,8 +215,7 @@ class Dashboard extends CI_Controller {
     }
 
     // Save
-    public function saveContact()
-  	{
+    public function saveContact() {
       $data = array(
         'contact'     => $this->input->post('contact'),
         'author'      => $this->input->post('author')
@@ -230,5 +229,86 @@ class Dashboard extends CI_Controller {
         $this->session->set_flashdata('info','<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
       }
       redirect('dashboard/contact');
+    }
+
+    // paket
+    public function paket() {
+      $data['content']    = 'content/dashboard/paket';
+      $data['menu1']      = '';
+      $data['menu2']      = 'active';
+      $data['menu3']      = '';
+      $data['menu4']      = '';
+      $data['menu5']      = '';
+      $data['paket']      = $this->mymodel->getPaket()->result();
+
+      $this->load->view('theme/dashboard', $data);
+    }
+
+    // add update
+    public function addUpdatePaket() {
+      $data['content']    = 'content/dashboard/form-paket';
+      $data['menu1']      = '';
+      $data['menu2']      = 'active';
+      $data['menu3']      = '';
+      $data['menu4']      = '';
+      $data['menu5']      = '';
+
+      $key	= $this->uri->segment(3);
+  		$query	= $this->mymodel->getWherePaket($key);
+
+  		if($query->num_rows()>0) {
+  			foreach ($query->result() as $row) {
+  				$data['id_paket']     = $row->id_paket;
+  				$data['nama_paket']   = $row->nama_paket;
+  				$data['detail']       = $row->detail;
+  				$data['harga']        = $row->harga;
+  				$data['author']       = $row->author;
+  				$data['last_update']  = $row->last_update;
+  			}
+
+  		} else {
+        $data['id_paket']     = '';
+        $data['nama_paket']   = '';
+        $data['detail']       = '';
+        $data['harga']        = '';
+        $data['author']       = '';
+        $data['last_update']  = '';
+  		}
+
+      $this->load->view('theme/dashboard', $data);
+    }
+
+    // save
+    public function savePaket() {
+      $data = array(
+        'nama_paket'  => $this->input->post('nama_paket'),
+        'detail'      => $this->input->post('detail'),
+        'harga'      => $this->input->post('harga'),
+        'author'      => $this->input->post('author')
+      );
+
+      $key    = $this->input->post('id_paket');
+  		$query  = $this->mymodel->getWherePaket($key);
+
+      if ($query->num_rows()>0) {
+        $this->mymodel->updatePaket($key, $data);
+        $this->session->set_flashdata('info','<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+      } else {
+        $this->mymodel->addPaket($data);
+        $this->session->set_flashdata('info','<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
+      }
+      redirect('dashboard/paket');
+    }
+
+    // delete
+    public function deletePaket($key) {
+      $key    = $this->uri->segment(3);
+  		$query  = $this->mymodel->getWherePaket($key);
+  		if($query->num_rows()>0)
+  		{
+  			$this->mymodel->deletePaket($key);
+        $this->session->set_flashdata('info','<div class="alert alert-warning" role="alert">Data berhasil dihapus</div>');
+  		}
+  		redirect('dashboard/paket');
     }
 }

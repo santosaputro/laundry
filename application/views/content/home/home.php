@@ -77,21 +77,42 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <?php foreach ($paket as $data): ?>
+      <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><strong>Medium</strong></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6><br>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title"><strong><?php echo $data->nama_paket; ?></strong></h5><br>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6><br> -->
+            <p class="card-text"><?php echo substr($data->detail, 0, 120); ?></p>
             <br>
             <div class="text-center">
-              <a href="#" class="btn btn-default bg-yellow">Read More</a>
+              <a class="btn btn-default bg-yellow" data-toggle="modal" data-target="#<?php echo $data->id_paket; ?>">Read More</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div id="<?php echo $data->id_paket; ?>" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><?php echo $data->nama_paket; ?></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p><?php echo $data->detail; ?></p>
+            </div>
+            <div class="modal-footer">
+              <h5 class="modal-title">Rp. <?php echo $data->harga ?> ,-</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <?php endforeach ?>
+  <!--<div class="col-md-3">
         <div class="segitiga">
 
         </div>
@@ -109,20 +130,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><strong>Expensive</strong></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6><br>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <br>
-            <div class="text-center">
-              <a href="#" class="btn btn-default bg-yellow">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -132,21 +140,99 @@
   <div id='app' class="bg-light"><br><br>
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          <h2>Check Price</h2>
-        </div>
-        <div class="col-md-4">
-          <form class="form-inline">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="inputPassword2" class="sr-only">Password</label>
-                <input type="text" id="firstNumber" v-model="firstNumber" class="form-control"><strong>KG</strong>
+        <div class="col-md-12">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-<?php echo $id1; ?>" role="tab"><?php echo $nama1; ?></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#tab-<?php echo $id2; ?>" role="tab"><?php echo $nama2; ?></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-<?php echo $id3; ?>" role="tab"><?php echo $nama3; ?></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-<?php echo $id4; ?>" role="tab"><?php echo $nama4; ?></a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show" role="tabpanel" id="tab-<?php echo $id1; ?>">
+              <div class="row">
+                <div class="col-md-3">
+                  <h2>Check Price <?php echo $nama1; ?></h2>
+                </div>
+                <div class="col-md-4">
+                  <form class="form-inline">
+                      <div class="form-group">
+                        <label for="firstNumber" class="sr-only"></label>
+                        <input type="text" id="firstNumber" v-model="firstNumber" class="form-control"><strong>KG</strong>
+                      </div>
+                  </form>
+                </div>
+                <div class="col-md-3">
+                  <h3>Rp {{ harga1 }} ,00</h3>
+                </div>
               </div>
             </div>
-          </form>
-        </div>
-        <div class="col-md-3">
-          <h3>Rp {{ result }} ,00</h3>
+
+            <div class="tab-pane fade show active" role="tabpanel" id="tab-<?php echo $id2; ?>">
+              <div class="row">
+                <div class="col-md-3">
+                  <h2>Check Price <?php echo $nama2; ?></h2>
+                </div>
+                <div class="col-md-4">
+                  <form class="form-inline">
+                      <div class="form-group">
+                        <label for="firstNumber" class="sr-only"></label>
+                        <input type="text" id="firstNumber" v-model="firstNumber" class="form-control"><strong>KG</strong>
+                      </div>
+                  </form>
+                </div>
+                <div class="col-md-3">
+                  <h3>Rp {{ harga2 }} ,00</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade show" role="tabpanel" id="tab-<?php echo $id3; ?>">
+              <div class="row">
+                <div class="col-md-3">
+                  <h2>Check Price <?php echo $nama3; ?></h2>
+                </div>
+                <div class="col-md-4">
+                  <form class="form-inline">
+                      <div class="form-group">
+                        <label for="firstNumber" class="sr-only"></label>
+                        <input type="text" id="firstNumber" v-model="firstNumber" class="form-control"><strong>KG</strong>
+                      </div>
+                  </form>
+                </div>
+                <div class="col-md-3">
+                  <h3>Rp {{ harga3 }} ,00</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade show" role="tabpanel" id="tab-<?php echo $id4; ?>">
+              <div class="row">
+                <div class="col-md-3">
+                  <h2>Check Price <?php echo $nama4; ?></h2>
+                </div>
+                <div class="col-md-4">
+                  <form class="form-inline">
+                      <div class="form-group">
+                        <label for="firstNumber" class="sr-only"></label>
+                        <input type="text" id="firstNumber" v-model="firstNumber" class="form-control"><strong>KG</strong>
+                      </div>
+                  </form>
+                </div>
+                <div class="col-md-3">
+                  <h3>Rp {{ harga4 }} ,00</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div><br>
@@ -196,7 +282,38 @@
           <a href="#"><li><i class="ion-social-pinterest"></i></li><a/>
         </ul>
       </div>
-      <div class="p-2">built with <i class="ion-ios-heart" style="color: pink;"></i> by <a href="#" style="color: #edd500;">psycodev</a></div>
+      <div class="p-2"><a href="<?php echo base_url(); ?>" style="color: #edd500;">Simple Clean Laundry</a> 2018 All Right Reserved</div>
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+
+  new Vue({
+      el:'#app',
+      data : {
+              firstNumber : '',
+              secondNumber: <?php echo $harga1; ?>,
+              thirdNumber: <?php echo $harga2; ?>,
+              fourthNumber: <?php echo $harga3; ?>,
+              fifthNumber: <?php echo $harga4; ?>
+       },
+      computed: {
+              harga1: function(){
+                  return this.firstNumber * this.secondNumber;
+              },
+              harga2: function(){
+                  return this.firstNumber * this.thirdNumber;
+              },
+              harga3: function(){
+                  return this.firstNumber * this.fourthNumber;
+              },
+              harga4: function(){
+                  return this.firstNumber * this.fifthNumber;
+              }
+          }
+  });
+</script>
